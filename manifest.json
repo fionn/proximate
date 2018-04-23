@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "proxyz",
+    "version": "0.1",
+
+    "description": "minimal proxy extension",
+    "permissions": ["proxy"],
+
+    "applications": {
+        "gecko": {
+            "strict_min_version": "59"
+        }
+    },
+
+    "background": {
+        "scripts": [
+            "background/handler.js"
+        ]
+    }
+}
