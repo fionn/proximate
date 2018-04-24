@@ -1,4 +1,4 @@
-const proxyInfo = [
+const httpProxyInfo = [
     {
         type: "http",
         host: "proxy.host.url",
@@ -6,8 +6,20 @@ const proxyInfo = [
     }
 ];
 
+const socksProxyInfo = [
+    {
+        type: "socks",
+        host: "proxy.host.url",
+        port: 11180,
+        username: "username",
+        password: "password",
+        proxyDNS: true
+    }
+];
+
+
 function FindProxyForURL(url, host)
 {
-    return proxyInfo;
+    return socksProxyInfo;
 }
 
