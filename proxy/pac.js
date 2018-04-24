@@ -1,25 +1,29 @@
-const httpProxyInfo = [
-    {
-        type: "http",
-        host: "proxy.host.url",
-        port: 3128
-    }
-];
+const httpsProxyConfig = {
+   mode: "fixed_servers",
+   rules: {
+       singleProxy: {
+           scheme: "https",
+           host: "proxy.host.url",
+           port: 3128
+       }
+   }
+};
 
-const socksProxyInfo = [
-    {
-        type: "socks",
-        host: "proxy.host.url",
-        port: 11180,
-        username: "username",
-        password: "password",
-        proxyDNS: true
-    }
-];
+const socksProxyConfig = {
+   mode: "fixed_servers",
+   rules: {
+       singleProxy: {
+           scheme: "socks5",
+           host: "proxy.host.url",
+           port: 1080
+       }
+   }
+};
 
+const settings = {
+   value: socksProxyConfig,
+   scope: "regular"
+};
 
-function FindProxyForURL(url, host)
-{
-    return socksProxyInfo;
-}
+chrome.proxy.settings.set(settings, function() {});
 
